@@ -38,7 +38,6 @@ function SideBarAdmin() {
 
             <div className="px-4 py-4 md:px-6 md:py-6 lg:px-[28px] lg:py-8">
                 <div className='mb-5 md:mb-10 lg:mb-[53px] text-center'>
-                    <p>Global Satta</p>
                 </div>
                 <ul className="space-y-3">
                     <li>
@@ -79,7 +78,7 @@ capitalize px-[15px] flex flex-wrap items-center py-[7px] rounded-full text-base
 capitalize px-[15px] flex flex-wrap items-center py-[7px] rounded-full text-base tracking-[-0.03em] font-medium hover:text-indigo-600 ${pathname === "/users-list" ? 'bg-indigo-600 bg-opacity-10 text-indigo-600' : 'text-[#8D929A] '}`}
                         >
                             <FaUser size={18} className="mr-2" />
-                          Widthwal Request 
+                            Widthwal Request
                         </Link>
                     </li>
                     <li>
@@ -214,8 +213,6 @@ capitalize px-[15px] flex flex-wrap items-center py-[7px] rounded-full text-base
                             settings
                         </Link>
                     </li>
-
-
                     <li>
                         <button onClick={handleLogout} className="px-[15px] flex flex-wrap items-center py-[7px]  rounded-full text-base tracking-[-0.03em] font-medium text-[#FF1B1B] hover:text-indigo-600">
                             <svg className="inline align-middle mr-[4px]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
