@@ -24,6 +24,8 @@ import BetListing from "./Admin/MubaiManagement/BetListing";
 import Subadmin from "./Admin/subadmin/Subadmin";
 import SubResult from "./Admin/subadmin/Result/Result";
 import PrivacyPolicy from "./Admin/PrivacyPolicy";
+import widthrawalData from "./Admin/widthrawal/List";
+
 
 
 
@@ -42,13 +44,13 @@ function App() {
           <Route path="/sub-admin-reult" element={<SubResult />} />
           <Route path="jodi-digit" element={<JodiDigitNumbers />} />
           <Route path="single-digit" element={<SingleDigitNumbers />} />
-          <Route path="/single_pana" element={<SinglePanaNumbers/>}/>
-          <Route path="/double_pana" element={<DoblePannaNumber/>} />
-          <Route path ="/tripplepanna" element={<Tripplepanna/>}/>
-          <Route path ="/fullsangam" element={<FullSangam/>}/>
-          <Route path ="/privacy_policy" element={<PrivacyPolicy/>}/>
-
-          <Route path ="/halfsangam" element={<HalfSangam/>}/>
+          <Route path="/single_pana" element={<SinglePanaNumbers />} />
+          <Route path="/double_pana" element={<DoblePannaNumber />} />
+          <Route path="/tripplepanna" element={<Tripplepanna />} />
+          <Route path="/fullsangam" element={<FullSangam />} />
+          <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+          <Route path="/widtrawal-list" element={<widthrawalData />} />
+          <Route path="/halfsangam" element={<HalfSangam />} />
           <Route path="/un-approved-users-list" element={<Unapproved />} />
           <Route path="/users-list" element={<UserListTable />} />
           <Route path="/results" element={<Result />} />
@@ -62,11 +64,6 @@ function App() {
           <Route path="/mumbai-user-bid-history" element={<BidHistoryReport />} />
           <Route path="/winning-report" element={<WinningHistory />} />
           <Route path="/betlist" element={<BetListing />} />
-
-          
-
-
-
         </Routes>
       </Router>
     </div>

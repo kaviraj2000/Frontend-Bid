@@ -18,6 +18,10 @@ class Listing extends Component {
         return Api.get("/api/user-stats",)
     }
 
+    async WidthrawalList() {
+        return Api.get("/payment/widtarawal",)
+    }
+
     async userList() {
         return Api.get("/user/list",)
     }

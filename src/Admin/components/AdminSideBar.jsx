@@ -73,7 +73,15 @@ capitalize px-[15px] flex flex-wrap items-center py-[7px] rounded-full text-base
                         </Link>
                     </li>
 
-
+                    <li>
+                        <Link to="/widtrawal-list"
+                            className={`
+capitalize px-[15px] flex flex-wrap items-center py-[7px] rounded-full text-base tracking-[-0.03em] font-medium hover:text-indigo-600 ${pathname === "/users-list" ? 'bg-indigo-600 bg-opacity-10 text-indigo-600' : 'text-[#8D929A] '}`}
+                        >
+                            <FaUser size={18} className="mr-2" />
+                          Widthwal Request 
+                        </Link>
+                    </li>
                     <li>
                         <Link to="/results"
                             className={`
