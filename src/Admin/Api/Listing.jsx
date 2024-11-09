@@ -13,7 +13,7 @@ class Listing extends Component {
         return Api.get("/user",)
     }
 
-    
+
     async Dashboard() {
         return Api.get("/api/user-stats",)
     }
@@ -56,11 +56,11 @@ class Listing extends Component {
     }
 
     async userSubAdmin() {
-        return Api.get("/user/subadmin", )
+        return Api.get("/user/subadmin",)
     }
 
 
-    
+
 
     async userwithdrawal(data) {
         return Api.post("/payment/withdrawal/data", data)
@@ -98,7 +98,7 @@ class Listing extends Component {
     }
 
     async ResultGet() {
-        return Api.get("/result/resultget", )
+        return Api.get("/result/resultget",)
     }
 
 
