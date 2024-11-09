@@ -19,7 +19,7 @@ class Listing extends Component {
     }
 
     async WidthrawalList() {
-        return Api.get("/payment/widtrawalreq",)
+        return Api.get("/payment/widtrawalpament",)
     }
 
     async userList() {

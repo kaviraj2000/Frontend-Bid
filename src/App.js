@@ -24,10 +24,7 @@ import BetListing from "./Admin/MubaiManagement/BetListing";
 import Subadmin from "./Admin/subadmin/Subadmin";
 import SubResult from "./Admin/subadmin/Result/Result";
 import PrivacyPolicy from "./Admin/PrivacyPolicy";
-import widthrawalPayment from "./Admin/widthrawal/List";
-
-
-
+import WidthrwalData from "./Admin/widthrawal/WidthrwalData"
 
 function App() {
 
@@ -49,7 +46,7 @@ function App() {
           <Route path="/tripplepanna" element={<Tripplepanna />} />
           <Route path="/fullsangam" element={<FullSangam />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
-          <Route path="/widtrawal-list" element={<widthrawalPayment />} />
+          <Route path="/widtrawal-list" element={<WidthrwalData />} />
           <Route path="/halfsangam" element={<HalfSangam />} />
           <Route path="/un-approved-users-list" element={<Unapproved />} />
           <Route path="/users-list" element={<UserListTable />} />
