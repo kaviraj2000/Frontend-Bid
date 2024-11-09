@@ -14,7 +14,6 @@ function Delete({ Id, fetchMarketList, step ,fetchData}) {
     const closeModal = () => setModalIsOpen(false);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
         setLoading(true);
         try {
             const main = new Listing();
