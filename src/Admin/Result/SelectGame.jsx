@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Listing from '../Api/Listing';
 import toast from 'react-hot-toast';
 
-function SelectGame({ listing }) {
+function SelectGame({ listing, fetchMarketList }) {
   const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -26,21 +26,22 @@ function SelectGame({ listing }) {
     e.preventDefault();
     setLoading(true);
     try {
-        const main = new Listing();
-        const response = await main.ResultRate(formData);
-        console.log("response", response)
-        if (response?.data) {
-            toast.success(response.data.message);
-        } else {
-            toast.error(response.data.message);
-        }
+      const main = new Listing();
+      const response = await main.ResultRate(formData);
+      console.log("response", response)
+      if (response?.data) {
+        toast.success(response.data.message);
+        fetchMarketList();
+      } else {
+        toast.error(response.data.message);
+      }
     } catch (error) {
-        console.error("Error", error?.response?.data?.message);
-        toast.error(error?.response?.data?.message)
+      console.error("Error", error?.response?.data?.message);
+      toast.error(error?.response?.data?.message)
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-};
+  };
 
   return (
     <div className="card bg-white rounded-md px-4 py-2 lg:px-10 lg:py-2.5">
@@ -129,14 +130,14 @@ function SelectGame({ listing }) {
             <div className="form-group">
               <label className="block text-sm font-medium text-gray-700 mb-1">&nbsp;</label>
               <button
-              onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
                 type="submit"
                 className="btn btn-primary bg-blue-500 text-white font-semibold py-2 px-4 w-full rounded-md"
                 name="update"
                 id="update"
               >
                 {loading ? "Loading..." : "Declare Result"}
-                
+
               </button>
             </div>
 

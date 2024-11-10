@@ -10,8 +10,6 @@ function WinningHistory() {
     const [listing, setListing] = useState([]);
     const [sangam, setSangam] = useState([]);
 
-    console.log("listing", listing);
-
     const fetchMarketList = async () => {
         setLoading(true);
         try {
