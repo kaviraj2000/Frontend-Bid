@@ -80,7 +80,7 @@ class Listing extends Component {
         return Api.get("/market/marketlistupdate")
     }
     async marketEdit(data) {
-        return Api.post("/market/marketupdatedata", data)
+        return Api.post("/market/marketupdate", data)
     }
     async marketDelete(data) {
         return Api.post("/market/marketdelete", data)
