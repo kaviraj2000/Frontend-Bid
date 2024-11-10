@@ -32,7 +32,6 @@ const Login = () => {
       if (response?.data?.status === true) {
         localStorage.setItem("token", response?.data?.token);
         if (response.data.user.role === "admin") {
-
           navigate("/dashboard");
         }
         if (response.data.user.role === "subadmin") {
@@ -44,7 +43,7 @@ const Login = () => {
       }
       setLoading(false);
     } catch (error) {
-      console.log("error", error);
+      console.log("erroraaa", error);
       toast.error("invalid Email/password");
       setLoading(false);
     }
