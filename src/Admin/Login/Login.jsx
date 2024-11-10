@@ -31,11 +31,11 @@ const Login = () => {
       console.log("response", response)
       if (response?.data?.status === true) {
         localStorage.setItem("token", response?.data?.token);
-        if(response.data.user.role === "admin"){
+        if (response.data.user.role === "admin") {
 
           navigate("/dashboard");
         }
-        if(response.data.user.role === "subadmin"){
+        if (response.data.user.role === "subadmin") {
           navigate("/sub-admin-reult");
         }
         toast.success(response.data.message);
@@ -114,17 +114,11 @@ const Login = () => {
               onClick={handleForms}
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-             {loading ? "Loading.. " :"Sign in"}
+              {loading ? "Loading.. " : "Sign in"}
             </button>
           </div>
         </form>
 
-        <p className="mt-10 text-center text-sm text-gray-500">
-          Not a member?
-          <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-            Start a 14 day free trial
-          </a>
-        </p>
       </div>
     </div>
   );
