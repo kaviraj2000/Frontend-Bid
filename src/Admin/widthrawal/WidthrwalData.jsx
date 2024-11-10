@@ -32,7 +32,6 @@ function WidthrwalData() {
     }, []);
     return (
         <AdminLayout>
-
             <div className="px-4 py-2 lg:px-10 lg:py-2.5">
 
                 <div className="mt-8">
