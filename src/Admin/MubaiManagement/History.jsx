@@ -58,7 +58,7 @@ function History() {
                                         className="border-b border-gray-200 hover:bg-gray-100"
                                     >
                                         <td className="py-3 px-3 text-center">{index + 1}</td>
-                                        <td className="py-3 px-3 text-center">{item?.userId.phone}</td>
+                                        <td className="py-3 px-3 text-center">{item?.userId?.phone}</td>
                                         <td className="py-3 px-3 text-center">
                                             {item?.type?.replace("_", " ")}
                                         </td>

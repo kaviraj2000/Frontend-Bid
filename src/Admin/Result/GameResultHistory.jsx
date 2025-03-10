@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Listing from '../Api/Listing';
-const GameResultHistory = ({fetchMarketList}) => {
+const GameResultHistory = ({ fetchMarketList }) => {
 
   const [loading, setLoading] = useState(false);
   const [listing, setListing] = useState([]);
@@ -48,40 +48,51 @@ const GameResultHistory = ({fetchMarketList}) => {
               {listing?.map((item, index) => (
                 <tr key={item._id} className="text-gray-600 text-sm font-light">
                   <td className=" text-left  px-2 py-4">{index + 1}</td>
-
                   <td className="  text-left px-2 py-4">{item?.marketId?.name}</td>
 
                   <td className="  text-left px-2 py-4">
+
                     {
                       item?.panaaModal?.map((panaa) => (
-                        <div key={panaa._id}>
-                          {panaa.point}
-                        </div>
+                        panaa.status === true && (
+                          <div key={panaa._id}>
+                            <p>Point: {panaa.point}</p>
+                          </div>
+                        )
                       ))
                     }
+
                     {
                       item?.sangamModal?.map((sangam) => (
-                        <div key={sangam._id}>
-                          {sangam.bid_point}
-                        </div>
+                        sangam.status === true && (
+                          <div key={sangam._id}>
+                            {sangam.bid_point}
+                          </div>
+                        )
                       ))
                     }
+
                   </td>
                   <td className=" text-left  px-2 py-4">
                     {
                       item?.panaaModal?.map((panaa) => (
-                        <div key={panaa._id}>
-                          {panaa.point}
-                        </div>
+                        panaa.status === false && (
+                          <div key={panaa._id}>
+                            {panaa?.point}
+                          </div>
+                        )
                       ))
                     }
                     {
                       item?.sangamModal?.map((sangam) => (
-                        <div key={sangam._id}>
-                          {sangam.bid_point}
-                        </div>
+                        sangam.status === false && (
+                          <div key={sangam._id}>
+                            {sangam.bid_point}
+                          </div>
+                        )
                       ))
                     }
+
                   </td>
                   <td className="  text-left px-2 py-4">
                     {
