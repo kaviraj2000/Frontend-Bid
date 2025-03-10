@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Admin/Login/Login";
+import "./App.css";
 import Index from "./Admin/Page/Index";
 import JodiDigitNumbers from "./Admin/panna/JodiDigitNumbers";
 import SingleDigitNumbers from "./Admin/panna/SingleDigitNumbers";
