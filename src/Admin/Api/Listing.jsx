@@ -82,6 +82,11 @@ class Listing extends Component {
     async marketEdit(data) {
         return Api.post("/market/marketupdate", data)
     }
+
+
+     async marketFormEdit(data) {
+        return Api.post("/market/marketupdatedata", data)
+    }
     async marketDelete(data) {
         return Api.post("/market/marketdelete", data)
     }

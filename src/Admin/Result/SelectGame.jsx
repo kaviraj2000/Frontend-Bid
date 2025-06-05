@@ -141,7 +141,7 @@ function SelectGame({ listing, fetchMarketList }) {
               </button>
             </div>
 
-            {/* Declare Allot Button */}
+            {/* Declare Allot Button
             <div className="form-group">
               <label className="block text-sm font-medium text-gray-700 mb-1">&nbsp;</label>
               <button
@@ -152,9 +152,9 @@ function SelectGame({ listing, fetchMarketList }) {
               >
                 Declare Allot
               </button>
-            </div>
+            </div> */}
 
-            {/* Winner List Button */}
+            {/* Winner List Button
             <div className="form-group">
               <label className="block text-sm font-medium text-gray-700 mb-1">&nbsp;</label>
               <button
@@ -163,7 +163,7 @@ function SelectGame({ listing, fetchMarketList }) {
               >
                 Winner List
               </button>
-            </div>
+            </div> */}
 
             {/* Error Message */}
             <div className="form-group">

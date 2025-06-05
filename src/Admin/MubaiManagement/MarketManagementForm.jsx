@@ -41,13 +41,13 @@ const MarketManagementForm = () => {
         setLoading(true);
         try {
             const main = new Listing();
-            const response = await main.marketEdit(formData);
+            const response = await main.marketFormEdit(formData);
             if (response?.data?.status) {
                 toast.success(response.data.message);
-                fetchMarketList(); 
+                fetchMarketList();
                 setFormData({
-                    market_status :" ",
-                    Id :" "
+                    market_status: " ",
+                    Id: " "
                 })
             } else {
                 toast.error(response.data.message);
