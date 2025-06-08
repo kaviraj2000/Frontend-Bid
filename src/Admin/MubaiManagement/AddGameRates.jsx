@@ -14,7 +14,8 @@ const AddGameRates = () => {
     full_sangam: "",
     Half_sangam: "",
     Digit_on: "",
-    dp_motors: ""
+    dp_motors: "",
+    _id :"6845df342f7d7cdbcd2db358"
   });
   const handleInputs = (e) => {
     const value = e.target.value;
@@ -35,8 +36,6 @@ const AddGameRates = () => {
       const response = await main.GameRate(Regs);
       if (response?.data?.status === true) {
         toast.success(response.data.message);
-
-        // Update the Regs state with the received data
         setRegs((prevState) => ({
           ...prevState,
           single_digit_rate: response.data.single_digit_rate || prevState.single_digit_rate,
