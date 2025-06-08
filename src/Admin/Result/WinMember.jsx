@@ -1,32 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Listing from '../Api/Listing';
+import moment from "moment";
 
-const WinMember = ({ fetchMarketList }) => {
+const WinMember = ({ listing }) => {
 
-  const [loading, setLoading] = useState(false);
-  const [listing, setListing] = useState([]);
-
-  console.log("listing", listing)
-
-  const fetchMarketLists = async () => {
-    setLoading(true);
-    try {
-      const main = new Listing();
-      const response = await main.ResultGet();
-      console.log("response", response)
-      fetchMarketList();
-      setListing(response?.data?.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchMarketLists();
-  }, []);
-  console.log()
   return (
     <div className="card-body">
       <h4 className="card-title text-lg font-bold mb-4">Win Member</h4>
@@ -36,16 +11,20 @@ const WinMember = ({ fetchMarketList }) => {
           <thead>
             <tr className="bg-gray-200">
               <th className="py-6 px-3 text-center border-b-2 border-gray-300">#</th>
+              <th className="py-6 px-3 text-center  border-b-2 border-gray-300">Date</th>
               <th className="py-6 px-3 text-center  border-b-2 border-gray-300">Member</th>
               <th className="py-6 px-3 text-center border-b-2 border-gray-300">Game Name</th>
               <th className="py-6 px-3 text-center border-b-2 border-gray-300">Bet Digit</th>
-              <th className="py-6 px-3 text-center border-b-2 border-gray-300">Bet Amount</th>
+              <th className="py-6 px-3 text-center border-b-2 border-gray-300">Amount</th>
             </tr>
           </thead>
           <tbody>
             {listing?.map((item, index) => (
               <tr key={item._id} className="text-gray-600 text-sm font-light">
                 <td className=" px-3 text-center py-6">{index + 1}</td>
+                <td className=" px-3 text-center py-6">
+                  {moment(item.betdate).format("DD MMM YYYY hh:mm A")}
+                </td>
                 <td className=" px-3 text-center py-6">{item?.userId?.username}</td>
                 <td className=" px-3 text-center py-6">{item?.marketId?.name}</td>
                 <td className=" px-3 text-center  py-6">
@@ -68,7 +47,7 @@ const WinMember = ({ fetchMarketList }) => {
                   {item?.panaaModal && (
                     item?.panaaModal?.map((panaa) => (
                       <div key={panaa._id}>
-                        Panna:   {panaa?.point}
+                        ₹   {panaa?.point}
                       </div>
                     ))
                   )
@@ -76,7 +55,7 @@ const WinMember = ({ fetchMarketList }) => {
                   {item?.sangamModal && (
                     item?.sangamModal?.map((panaa) => (
                       <div key={panaa._id}>
-                        Sangam:   {panaa?.bid_point}
+                        ₹   {panaa?.bid_point}
                       </div>
                     ))
                   )

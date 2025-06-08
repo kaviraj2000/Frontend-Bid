@@ -33,25 +33,23 @@ const BidHistoryReport = () => {
     };
 
     const filterData = () => {
-        const { betdate, market_id, game_id } = formData;
-
+        const { betdate, market_id } = formData;
         const filteredListing = rawListing.filter((item) => {
             const matchesDate = !betdate || moment(item.date).format("YYYY-MM-DD") === betdate;
-            const matchesMarket = !market_id || item.marketId?._id == market_id;
-            const matchesGame = !game_id || game_id === "All" || item.type === game_id;
-            return matchesDate && matchesMarket && matchesGame;
+            const matchesMarket = !market_id || String(item.marketId?.name) === market_id;
+            return matchesDate && matchesMarket;
         });
 
         const filteredSangam = rawSangam.filter((item) => {
             const matchesDate = !betdate || moment(item.date).format("YYYY-MM-DD") === betdate;
-            const matchesMarket = !market_id || item.marketId?._id == market_id;
-            const matchesGame = !game_id || game_id === "All" || item.type === game_id;
-            return matchesDate && matchesMarket && matchesGame;
+            const matchesMarket = !market_id || String(item.marketId?.name) === market_id;
+            return matchesDate && matchesMarket;
         });
 
         setListing(filteredListing);
         setSangam(filteredSangam);
     };
+
 
     const fetchMarketList = async () => {
         setLoading(true);
@@ -82,7 +80,7 @@ const BidHistoryReport = () => {
                     <div className="p-6">
                         <h4 className="text-xl font-semibold mb-4">Bid History Report</h4>
                         <form onSubmit={handleSubmit}>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {/* Date */}
                                 <div>
                                     <label htmlFor="betdate" className="block text-sm font-medium text-gray-700 mb-1">Select Date</label>
@@ -96,7 +94,6 @@ const BidHistoryReport = () => {
                                         className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     />
                                 </div>
-
                                 {/* Market */}
                                 <div>
                                     <label htmlFor="market_id" className="block text-sm font-medium text-gray-700 mb-1">Market Name</label>
@@ -108,51 +105,17 @@ const BidHistoryReport = () => {
                                         className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     >
                                         <option value="">- Please Select Market -</option>
-                                        <option value="1">MILAN MORNING</option>
-                                        <option value="2">KALYAN MORNING</option>
-                                        <option value="3">MADHUR MORNING</option>
-                                        <option value="4">SRIDEVI</option>
-                                        <option value="5">TIME BAZAR</option>
-                                        <option value="6">MADHUR DAY</option>
-                                        <option value="7">MILAN DAY</option>
-                                        <option value="8">RAJDHANI DAY</option>
-                                        <option value="9">SUPREME DAY</option>
-                                        <option value="10">KALYAN</option>
-                                        <option value="11">SRIDEVI NIGHT</option>
-                                        <option value="12">MADHUR NIGHT</option>
-                                        <option value="18">SUPREME NIGHT</option>
-                                        <option value="19">MILAN NIGHT</option>
-                                        <option value="20">KALYAN NIGHT</option>
-                                        <option value="21">RAJDHANI NIGHT</option>
-                                        <option value="24">MAIN BAZAR</option>
-                                        <option value="40">KALYAN EVENING</option>
+                                        <option value="TIME BAZAR">TIME BAZAR</option>
+                                        <option value="MADHUR DAY">MADHUR DAY</option>
+                                        <option value="MILAN DAY">MILAN DAY</option>
+                                        <option value="SRIDEVI NIGHT">SRIDEVI NIGHT</option>
+                                        <option value="MILAN NIGHT">MILAN NIGHT</option>
+                                        <option value="RAJDHANI NIGHT">RAJDHANI NIGHT</option>
+                                        <option value="MAIN BAJAR">MAIN BAJAR</option>
+                                        <option value="KALYAN">KALYAN</option>
+                                        <option value="whire">whire</option>
                                     </select>
                                 </div>
-
-                                {/* Game */}
-                                <div>
-                                    <label htmlFor="game_id" className="block text-sm font-medium text-gray-700 mb-1">Game Name</label>
-                                    <select
-                                        name="game_id"
-                                        id="game_id"
-                                        value={formData.game_id}
-                                        onChange={handleChange}
-                                        className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    >
-                                        <option value="">- Please Select Game Name -</option>
-                                        <option value="All">All</option>
-                                        <option value="1">Single Digit</option>
-                                        <option value="2">Jodi Digit</option>
-                                        <option value="3">Single Pana</option>
-                                        <option value="4">Double Pana</option>
-                                        <option value="5">Triple Pana</option>
-                                        <option value="6">Half Sangam</option>
-                                        <option value="7">Full Sangam</option>
-                                        <option value="9">Odds/Even</option>
-                                        <option value="10">Sp/Dp/Tp</option>
-                                    </select>
-                                </div>
-
                                 {/* Submit */}
                                 <div className="col-span-1 md:col-span-3">
                                     <button

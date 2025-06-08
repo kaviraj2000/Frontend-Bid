@@ -26,11 +26,12 @@ function Result() {
             setLoading(false);
         }
     };
-    console.log("marketadd", listing)
 
     useEffect(() => {
         fetchMarketList();
     }, []);
+
+    
     return (<>
         <AdminLayout>
 
@@ -39,9 +40,7 @@ function Result() {
                 <div className="mb-5">
                     <SelectGame listing={listing} fetchMarketList={fetchMarketList} />
                 </div>
-                <div className="mb-5">
-                    <WinMember fetchMarketList={fetchMarketList} />
-                </div>
+              
                 <div className="mb-5">
                     <GameResultHistory fetchMarketList={fetchMarketList} />
                 </div>
