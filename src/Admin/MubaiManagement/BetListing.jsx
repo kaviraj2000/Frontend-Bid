@@ -8,10 +8,6 @@ import AdminLayout from "../Layout/AdminLayout";
 function BetListing() {
     const [loading, setLoading] = useState(false);
     const [listing, setListing] = useState([]);
-    const [sangam, setSangam] = useState([]);
-
-    console.log("listing", listing);
-
     const fetchMarketList = async () => {
         setLoading(true);
         try {
@@ -97,7 +93,6 @@ function BetListing() {
                 </div>
             </div>
         </AdminLayout>
-
     );
 }
 
