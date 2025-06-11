@@ -14,7 +14,6 @@ const Unapproved = () => {
 
   ]);
 
-  console.log("users", users)
 
   const fetchData = () => {
     const main = new Listing();

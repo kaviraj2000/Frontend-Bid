@@ -8,7 +8,6 @@ const MarketManagementForm = () => {
     const [loading, setLoading] = useState(false);
     const [listing, setListing] = useState([]);
 
-    console.log(listing)
     const fetchMarketList = async () => {
         setLoading(true);
         try {

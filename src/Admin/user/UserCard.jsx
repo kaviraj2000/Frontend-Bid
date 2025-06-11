@@ -15,17 +15,14 @@ const UserCard = () => {
     const [payment, setPayment] = useState([]);
     const [userpayment, setUserPayment] = useState([]);
 
-    console.log(payment)
 
     const [loading, setLoading] = useState(false);
 
-    console.log("user", user)
     const fetchUserData = () => {
         setLoading(true);
         const main = new Listing();
         main.userListId(id)
             .then((res) => {
-                console.log("res", res)
                 if (res.data) {
                     setUser(res.data.data);
                     setPayment(res?.data?.payment

@@ -7,14 +7,12 @@ const GameResultHistory = ({fetchMarketList}) => {
   const [loading, setLoading] = useState(false);
   const [listing, setListing] = useState([]);
 
-  console.log("listing", listing)
 
   const fetchMarketLists = async () => {
     setLoading(true);
     try {
       const main = new Listing();
       const response = await main.ResultGet();
-      console.log("response", response)
       setListing(response?.data?.data);
       fetchMarketList();
     } catch (error) {
@@ -27,7 +25,6 @@ const GameResultHistory = ({fetchMarketList}) => {
   useEffect(() => {
     fetchMarketLists();
   }, []);
-  console.log()
 
   return (
     <>

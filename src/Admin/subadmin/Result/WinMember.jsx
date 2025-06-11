@@ -6,14 +6,12 @@ const WinMember = ({fetchMarketList}) => {
   const [loading, setLoading] = useState(false);
   const [listing, setListing] = useState([]);
 
-  console.log("listing", listing)
 
   const fetchMarketLists = async () => {
     setLoading(true);
     try {
       const main = new Listing();
       const response = await main.ResultGet();
-      console.log("response", response)
       fetchMarketList();
       setListing(response?.data?.data);
     } catch (error) {
@@ -26,7 +24,6 @@ const WinMember = ({fetchMarketList}) => {
   useEffect(() => {
     fetchMarketLists();
   }, []);
-  console.log()
   return (
     <div className="card-body">
       <h4 className="card-title text-lg font-bold mb-4">Win Member</h4>

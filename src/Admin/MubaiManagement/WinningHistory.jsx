@@ -8,7 +8,6 @@ import AdminLayout from "../Layout/AdminLayout";
 function WinningHistory() {
     const [loading, setLoading] = useState(false);
     const [listing, setListing] = useState([]);
-    console.log("listing0 ,listing", listing)
 
     const fetchMarketList = async () => {
         setLoading(true);
@@ -41,6 +40,8 @@ function WinningHistory() {
                                 <th className="py-3  px-3 text-center">Game Name</th>
                                 <th className="py-3 px-3 text-center">Bet Number</th>
                                 <th className="py-3 px-3 text-center">Game Type</th>
+                                <th className="py-3 px-3 text-center">Win Rate Amount</th>
+
                                 <th className="py-3 px-3 text-center">Amount</th>
                                 <th className="py-3 px-3 text-center">Win Amount</th>
 
@@ -82,7 +83,12 @@ function WinningHistory() {
                                                     ))
                                                 }
                                             </td>
+                                            <td className="py-3 px-3 text-center">
+                                                ₹   {item?.
+                                                    win_rate}
+                                            </td>
                                             <td className="py-3 px-3 text-center">₹ {item?.userId?.amount}</td>
+
 
                                             <td className="py-3 px-3 text-center">
                                                 ₹    {item?.win_amount}

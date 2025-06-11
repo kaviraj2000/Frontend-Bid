@@ -19,7 +19,6 @@ function Index() {
         try {
             const main = new Listing();
             const response = await main.Dashboard();
-            console.log("responsefetchMarketList", response)
             setListing(response?.data);
         } catch (error) {
             console.error(error);
@@ -28,7 +27,6 @@ function Index() {
             setLoading(false);
         }
     };
-    console.log("marketadd", listing)
 
     useEffect(() => {
         fetchMarketList();

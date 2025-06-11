@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AdminLayout from "../Layout/AdminLayout"
 import toast from 'react-hot-toast';
 import Listing from '../Api/Listing';
@@ -15,8 +15,41 @@ const AddGameRates = () => {
     Half_sangam: "",
     Digit_on: "",
     dp_motors: "",
-    _id :"6845df342f7d7cdbcd2db358"
+    _id: "6845df342f7d7cdbcd2db358"
   });
+
+  const fetchData = () => {
+    const main = new Listing();
+    main.WinningGameHistory()
+      .then((response) => {
+        if (response.data.data) {
+          setRegs((prevState) => ({
+            ...prevState,
+            single_digit_rate: response.data.data.single_digit_rate || prevState.single_digit_rate,
+            doble_digit_rate: response.data.data.doble_digit_rate || prevState.doble_digit_rate,
+            Single_panna_rate: response.data.data.Single_panna_rate || prevState.Single_panna_rate,
+            Doble_panna_rate: response.data.data.Doble_panna_rate || prevState.Doble_panna_rate,
+            Triple_panna_rate: response.data.data.Triple_panna_rate || prevState.Triple_panna_rate,
+            full_sangam: response.data.data.full_sangam || prevState.full_sangam,
+            Half_sangam: response.data.data.Half_sangam || prevState.Half_sangam,
+            Digit_on: response.data.data.Digit_on || prevState.Digit_on,
+            dp_motors: response.data.data.dp_motors || prevState.dp_motors
+          }));
+        } else {
+          toast.error("Failed to fetch game rate data");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching game rate:", error);
+        toast.error("Something went wrong while fetching data.");
+      });
+  };
+
+
+  useEffect(() => {
+    fetchData()
+  }, []);
+
   const handleInputs = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -36,18 +69,7 @@ const AddGameRates = () => {
       const response = await main.GameRate(Regs);
       if (response?.data?.status === true) {
         toast.success(response.data.message);
-        setRegs((prevState) => ({
-          ...prevState,
-          single_digit_rate: response.data.single_digit_rate || prevState.single_digit_rate,
-          doble_digit_rate: response.data.doble_digit_rate || prevState.doble_digit_rate,
-          Single_panna_rate: response.data.Single_panna_rate || prevState.Single_panna_rate,
-          Doble_panna_rate: response.data.Doble_panna_rate || prevState.Doble_panna_rate,
-          Triple_panna_rate: response.data.Triple_panna_rate || prevState.Triple_panna_rate,
-          full_sangam: response.data.full_sangam || prevState.full_sangam,
-          Half_sangam: response.data.Half_sangam || prevState.Half_sangam,
-          Digit_on: response.data.Digit_on || prevState.Digit_on,
-          dp_motors: response.data.dp_motors || prevState.dp_motors
-        }));
+        fetchData();
       } else {
         toast.error(response.data.message);
       }

@@ -13,7 +13,6 @@ function AddWithdraw({ user_id, fetchUserData }) {
         amount: "",
     });
 
-    console.log("Regs", Regs)
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
 

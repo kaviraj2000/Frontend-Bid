@@ -73,7 +73,6 @@ function Index() {
         Id: ""
     });
 
-    console.log("formData", formData)
 
     const openModal = (item) => {
         setFormData({
@@ -214,10 +213,10 @@ function Index() {
                                             {moment(item?.close_time, 'HH:mm').format('hh:mm A')}
                                         </td>
                                         <td
-                                            className={`capitalize	 py-3 px-6 font-bold text-left ${item?.market_status === "active" ? "text-green-500" : "text-red-500"
+                                            className={`capitalize	 py-3 px-6 font-bold text-left ${item?.status === "active" ? "text-green-500" : "text-red-500"
                                                 }`}
                                         >
-                                            {item?.market_status}
+                                            {item?.status}
                                         </td>
 
                                         <td className="py-3 px-6 text-left">

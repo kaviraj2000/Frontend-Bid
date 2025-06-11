@@ -16,7 +16,6 @@ function WidthrwalData() {
         try {
             const main = new Listing();
             const response = await main.WidthrawalList();
-            console.log("responsefetchMarketList", response)
             setListing(response?.data?.data);
         } catch (error) {
             console.error(error);
@@ -25,7 +24,6 @@ function WidthrwalData() {
             setLoading(false);
         }
     };
-    console.log("marketadd", listing)
 
     useEffect(() => {
         fetchMarketList();

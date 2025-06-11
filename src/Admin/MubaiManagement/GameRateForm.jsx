@@ -11,7 +11,6 @@ const GameRateForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(gameAmount);
   };
 
   return (

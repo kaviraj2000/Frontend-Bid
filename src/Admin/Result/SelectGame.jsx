@@ -49,7 +49,6 @@ function SelectGame({ fetchMarketList ,listing }) {
     try {
       const main = new Listing();
       const response = await main.ResultRate(formData);
-      console.log("response", response)
       if (response?.data) {
         toast.success(response.data.message);
         fetchMarketList();

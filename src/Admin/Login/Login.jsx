@@ -28,7 +28,6 @@ const Login = () => {
     const main = new Listing();
     try {
       const response = await main.Login(Regs);
-      console.log("response", response)
       if (response?.data?.status === true) {
         localStorage.setItem("token", response?.data?.token);
         if (response.data.user.role === "admin") {

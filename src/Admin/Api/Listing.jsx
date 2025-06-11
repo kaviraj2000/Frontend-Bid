@@ -98,6 +98,10 @@ class Listing extends Component {
         return Api.get("/panna/bid-history")
     }
 
+    async WinningGameHistory() {
+        return Api.get("/result/gamedata")
+    }
+
     async ResultRate(data) {
         return Api.post("/result/resultadd", data)
     }

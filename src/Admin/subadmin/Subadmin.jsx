@@ -60,7 +60,6 @@ function Subadmin() {
             setLoading(false);
         }
     };
-    console.log("marketadd", listing)
 
     useEffect(() => {
         fetchMarketList();
