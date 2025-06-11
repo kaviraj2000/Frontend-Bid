@@ -40,11 +40,9 @@ function WinningHistory() {
                                 <th className="py-3  px-3 text-center">Game Name</th>
                                 <th className="py-3 px-3 text-center">Bet Number</th>
                                 <th className="py-3 px-3 text-center">Game Type</th>
-                                <th className="py-3 px-3 text-center">Win Rate Amount</th>
-
+                                <th className="py-3 px-3 text-center">Bet Amount</th>
                                 <th className="py-3 px-3 text-center">Amount</th>
                                 <th className="py-3 px-3 text-center">Win Amount</th>
-
                             </tr>
                         </thead>
                         <tbody className="text-gray-600 text-sm font-light">
